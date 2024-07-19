@@ -15,19 +15,19 @@ const ContextProvider = (Props) => {
             setResultData(prev => prev + nextWord);
         }, 75 * index)
     }
-    const onSent = async (prompt, x=1 ) => {
+    const onSent = async (prompt, x = 1) => {
         setResultData("");
         setLoading(true);
         setShowResult(true);
-        if(x) setPrevPrompts(prev => [prompt,...prev])
+        if (x) setPrevPrompts(prev => [prompt, ...prev])
         setRecentPrompt(prompt);
-        const Response = await fetch('http://localhost:3000/ask', {
+        const Response = await fetch('https://new-gemini-api.vercel.app/ask', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ prompt: prompt})
+            body: JSON.stringify({ prompt: prompt })
         });
         const content = await Response.json();
         const outputText = content.text;
