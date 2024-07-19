@@ -8,13 +8,13 @@ const app = express()
 app.use(cors({
     origin: "https://new-gemini-three.vercel.app",
     methods: "GET,POST",
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
+    preflightContinue: true,
+    optionsSuccessStatus: 200,
     credentials: true,
-    allowedHeaders: "Content-Type, Authorization"
+    allowedHeaders: "Content-Type, Accept"
 }));
 
-
+app.options('*', cors()) // include before other routes
 // app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
