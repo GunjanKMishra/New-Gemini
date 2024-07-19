@@ -4,14 +4,11 @@ import "dotenv/config"
 import cors from "cors";
 import bodyParser from "body-parser";
 const app = express()
-let corsOptions = {
-    "origin": "*",
-    "methods": "GET,POST",
-    "preflightContinue": false,
-    "optionsSuccessStatus": 204
-  }
- 
- app.use(cors(corsOptions))
+
+app.use(cors({
+    origin: "https://new-gemini-three.vercel.app"
+}));
+
 
 // app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -19,7 +16,7 @@ app.use(bodyParser.json())
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-app.post("/ask", async (req, res) => {
+app.post('/ask', async (req, res) => {
     const prompt = await req.body['prompt'];
     try {
         const result = await model.generateContent(prompt);
