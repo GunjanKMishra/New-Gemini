@@ -21,7 +21,7 @@ const ContextProvider = (Props) => {
         setShowResult(true);
         if (x) setPrevPrompts(prev => [prompt, ...prev])
         setRecentPrompt(prompt);
-        const Response = await fetch('https://new-gemini-api.vercel.app/ask', {
+        const Response = await fetch('https://new-gem.vercel.app/ask/', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
