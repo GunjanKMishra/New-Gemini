@@ -5,14 +5,16 @@ import cors from "cors";
 import bodyParser from "body-parser";
 const app = express()
 
-app.use(cors({
-    origin: "https://new-gemini-three.vercel.app",
-    methods: "GET,POST",
-    preflightContinue: true,
-    optionsSuccessStatus: 200,
-    credentials: true,
-    allowedHeaders: "Content-Type, Accept"
-}));
+// app.use(cors({
+//     origin: "https://new-gemini-three.vercel.app",
+//     methods: "GET,POST",
+//     preflightContinue: true,
+//     optionsSuccessStatus: 200,
+//     credentials: true,
+//     allowedHeaders: "Content-Type, Accept"
+// }));
+
+app.use(cors());
 
 app.options('*', cors()) // include before other routes
 // app.use(bodyParser.urlencoded({ extended: false }))
