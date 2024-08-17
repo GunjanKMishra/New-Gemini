@@ -19,7 +19,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className={`bg-sec ${extended ? "md:w-1/5" : ""} p-4 hidden md:block`}>
+    <div className={`bg-sec transition-width duration-300 ease-in-out ${extended ? "md:w-1/5" : "md:w-20"} p-4 hidden md:block`}>
       <div className='p-2 hover:bg-hov w-fit rounded-full' onClick={handleMenu}>
         <img src={assets.menu_icon} alt="menu icon" className='w-6' title='Menu' />
       </div>
@@ -48,7 +48,7 @@ const Sidebar = () => {
           : null
       }
 
-      <div className={`absolute bottom-0 mb-4 flex flex-col mt-8 ${extended ? "w-1/6" : null}`}>
+      <div className={`absolute bottom-0 mb-4 flex flex-col mt-8 transition-width duration-300 ease-in-out ${extended ? "w-1/6" : "w-fit"}`}>
         <div className='flex gap-4 p-2 px-4 hover:bg-hov rounded-full justify-start w-full' title='Help'>
           <img src={assets.question_icon} alt="Help icon" className='w-4 h-4 my-auto' />
           {extended ? <p>Help</p> : null}
